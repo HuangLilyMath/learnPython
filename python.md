@@ -145,6 +145,82 @@ range(start,end,step)
 
 range()函数返回一个可迭代对象，可理解为一个序列，**序列中的数包括start,不包括end.**
 
+## 循环嵌套
+
+`print()`为换行
+
+## 循环的终止控制
+
+### break
+
+用来结束整个循环
+
+### continue
+
+用来结束当前当次循环
+
+实际运用中不常用
+
+## 字符串访问
+
+字符串中的编号叫做“索引”。
+
+<string>[<索引>]
+
+**索引从0(前向)或-1(后向)开始**
+
+### 切片形式访问
+
+选择字符串的子序列
+
+[ start : finish]
+
+start:子序列开始位置的索引值
+
+finish:子序列结束位置的**下一个字符的**索引值
+
+#### 接收三个参数
+
+start : finish : countBy
+
+默认 countBy 为1
+
+#### 获得逆字符串
+
+```python
+my_str='span'
+reverse_str=my_str[::-1]
+print(reverse_str)
+```
+
+输出结果为
+
+maps
+
+#### 遍历字符串
+
+for 循环遍历字符串
+
+`len(s)`表示s的长度。
+
+### 搜索字符串
+
+`str.count(substring)` 返回Str中substring子串出现的无覆盖的次数
+
+`str.find(s1)` 返回s1在这个字符串中的最低下标，如果不存在，则返回-1
+
+`str.rfind(s1)` 返回s1在这个字符串的最高下标，如果不存在，则返回-1
+
+`str.startswith(s1)` 如果字符串以s1开始，返回True
+
+`str.endswith(s1)` 如果字符串以s1结尾，返回True
+
+
+
+
+
+
+
 
 
 

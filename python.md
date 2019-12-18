@@ -217,6 +217,30 @@ for 循环遍历字符串
 
 
 
+## random库主要生成随机数
+
+`random()` 生成一个$[0.0,1.0)$之间的随机小数
+
+`randint(a,b)` 生成一个$[a,b]$之间的整数
+
+`uniform(a,b)` 生成一个$[a,b]$之间的随机小数
+
+### 对random库的引用方法
+
+import random
+
+from random import$^{*}$ (*引入random库中的所有函数*)
+
+```python 
+from random import random
+```
+
+*引入random库中的random函数*
+
+
+
+
+
 
 
 

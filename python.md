@@ -239,6 +239,50 @@ from random import random
 
 
 
+# 其他
+
+## 输入用逗号隔开
+
+``` python
+a,b,c,d,f = input().split(',')
+```
+
+## 找出一个整数的所有因子
+
+``` python
+a=int(input())
+i=2
+ans=[]
+while(i<=a):
+    while(a%i==0):
+        ans.append(str(i))
+        a=a/i
+    i=i+1
+print(','.join(ans))
+
+```
+
+输入 120
+
+输出 2,2,2,3,5
+
+也可用 `for`循环
+
+```python
+a=int(input())
+ans=[]
+for i in range(2,a+1):
+    while(a%i==0):
+        ans.append(str(i))
+        a=a/i
+print(','.join(ans))
+
+```
+
+
+
+
+
 
 
 

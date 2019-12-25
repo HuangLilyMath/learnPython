@@ -139,11 +139,7 @@ for <循环变量> in <数据集>：
 
 ​	<语句块>
 
-### range()函数
 
-range(start,end,step)
-
-range()函数返回一个可迭代对象，可理解为一个序列，**序列中的数包括start,不包括end.**
 
 ## 循环嵌套
 
@@ -217,25 +213,7 @@ for 循环遍历字符串
 
 
 
-## random库主要生成随机数
 
-`random()` 生成一个$[0.0,1.0)$之间的随机小数
-
-`randint(a,b)` 生成一个$[a,b]$之间的整数
-
-`uniform(a,b)` 生成一个$[a,b]$之间的随机小数
-
-### 对random库的引用方法
-
-import random
-
-from random import$^{*}$ (*引入random库中的所有函数*)
-
-```python 
-from random import random
-```
-
-*引入random库中的random函数*
 
 # 函数
 
@@ -336,9 +314,7 @@ def fun(a,b,c='three',d='four'):
 
   
 
-### id函数
 
-可以查看变量对象实际的内存地址。
 
 ## 变量作用域
 
@@ -363,11 +339,68 @@ def demo():
 NameError:name'y' is not defined 
 ```
 
+## 递归函数
 
+函数调用自身称为函数递归
+
+函数递归不会是无限的调用，其终将满足某个条件而逐层返回。
+
+例如：求阶乘
+
+```python
+def fact(n):
+  if n == 0 or n == 1:
+    return 1
+  else:
+    return n*fact(n-1)
+```
+
+## 模块化程序设计
+
+- 代码复用
+- 抽象
+- 模块化
+
+## 函数调用规范
+
+- 不会自动执行，被调用才会执行
+- 没有主函数的概念
 
 
 
 # 其他
+
+## 一些特殊的函数
+
+### range()函数
+
+range(start,end,step)
+
+range()函数返回一个可迭代对象，可理解为一个序列，**序列中的数包括start,不包括end.**
+
+### random库主要生成随机数
+
+`random()` 生成一个$[0.0,1.0)$之间的随机小数
+
+`randint(a,b)` 生成一个$[a,b]$之间的整数
+
+`uniform(a,b)` 生成一个$[a,b]$之间的随机小数
+
+#### 对random库的引用方法
+
+import random
+
+from random import$^{*}$ (*引入random库中的所有函数*)
+
+```python 
+from random import random
+```
+
+*引入random库中的random函数*
+
+### id函数
+
+可以查看变量对象实际的内存地址。
 
 ## 输入用逗号隔开
 

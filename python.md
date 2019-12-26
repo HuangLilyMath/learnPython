@@ -402,6 +402,10 @@ from random import random
 
 可以查看变量对象实际的内存地址。
 
+### len函数
+
+len函数可以用来输出字符串的长度。
+
 ## 输入用逗号隔开
 
 ``` python
@@ -440,7 +444,29 @@ print(','.join(ans))
 
 ```
 
+## 判断一个数是否为素数
 
+```python
+def isPrime(i):
+  for j in range(2,i // 2 + 1):
+    if i % j == 0:
+      return False
+   return True
+```
+
+## 判断一个数是否为回文数
+
+```python
+def isPalindrome(i):
+  number = i
+  result = 0
+  while number != 0:
+    remainder = number % 10
+    result = result * 10 + remainder
+    number = number // 10
+  return i == result
+    
+```
 
 
 

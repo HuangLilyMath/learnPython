@@ -495,9 +495,100 @@ sum(列表):对列表的元素进行求和运算
     		aList.append(x*x)
   ```
 
+
+### 列表常用算法
+
+#### 填充
+
+- 使用循环和列表的`append`方法填充列表
+
+  ```python
+  aList = []
+  for i in range(n):
+    aList.append(i*i)
+  ```
+
+#### 最小值和最大值
+
+如何求取一个字符串列表中最长的字符串？
+
+```python
+names = ['Ann','Charlotte','Zachary','Bill']
+longest = max(names,key=len)
+```
+
+#### 顺序查找
+
+如果需要查找某个特定值的位置，可以直接使用index方法。
+
+#### 收集匹配项
+
+```python
+limit = 100
+result = []
+for v in values:
+  if v>limit:
+    result.append(v)
+```
+
+```python
+result = [x for x in values if x>100]
+```
+
+#### 统计匹配项
+
+#### 删除所有指定元素
+
+- 如果需要删除列表中所有某个确定的元素
+
+```python
+x=100
+while x in values:
+  values.remove(x)
+```
+
+```python
+values = [x for x in values if x!= 100]
+```
+
+#### 删除匹配项
+
+```python
+values=[99,100,101,102,103]
+i=0
+while i<len(values):
+  if values[i]>100:
+    values.pop(i)
+  else:
+    i += 1
   
+```
 
+```python
+values = [x for x in values if x<= 100]
+```
 
+### 在函数中使用列表
+
+#### 列表作为函数参数
+
+列表作为函数参数，函数中可以修改原列表
+
+##### 可变对象与不可变对象
+
+**整数、浮点数、字符串**属于不可变对象，**列表**属于可变对象。
+
+#### 列表作为函数返回
+
+当函数返回一个列表时，就会返回这个列表的引用。
+
+```python
+def multiply(values,factor):
+  result = []
+  for i in values:
+    result.append(i*factor)
+  return result
+```
 
 
 
@@ -600,6 +691,18 @@ def isPalindrome(i):
   return i == result
     
 ```
+
+## 随机生成一个小写字母
+
+```python
+def getRandomLetter():
+  code_a = ord('a')
+  code_z = ord('z')
+  x = random.randint(code_a,code_z)
+  return chr(x)
+```
+
+## 小写字母是连续编码的，大写字母比对应的小写字母多26
 
 
 

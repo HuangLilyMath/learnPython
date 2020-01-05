@@ -1,3 +1,5 @@
+上课内容：慕课，东北大学
+
 # 分支结构
 
 ## 布尔类型及相关运算
@@ -610,6 +612,102 @@ a = (3,)
 
 - 速度比列表快
 - 对不需要改变的数据进行“写保护”
+
+# 文件和异常
+
+## 读取和写入文本文件
+
+- 以文本方式存储的文件
+- 可以使用下面的函数调用来打开这个文件：
+
+```python
+infile = open('input.txt','r')
+```
+
+- 以读模式打开文件(通过字符串参数'r'来表示)，并且返回一个与input.txt文件相关联的文件对象
+- 调用open函数返回的文件对象必须保存在一个变量中，所有处理文件的操作都通过这个文件对象来完成。
+- 以写模式打开一个文件
+
+```python
+outfile = open('output.txt','w')
+```
+
+- 如果输出文件已经存在，它在写入新数据之前会被清空。
+- 如果文件不存在，会创建一个空文件。
+- 处理完文件之后，确定使用close方法关闭文件
+
+```python
+infile.close()
+outfile.close()
+```
+
+### 读取文件
+
+```python
+line = infile.readline()
+```
+
+- readline方法从当前位置开始读取文本，直到遇到行尾。
+- 然后输入标记被移到下一行。
+
+```python
+line = inflile.readline()
+while line != '':
+  process the line.
+  line = infile.reading()
+```
+
+读取多行文本
+
+### 写入文件
+
+```python
+outfile.write('Hello,World!\n')
+```
+
+- print函数会在输出的尾部增加一个换行符（区别）
+- 使用print函数往文件中写入文本，需要提供文件对象作为参数file的值：
+
+```python
+print('Hello,World!',file=outfile)
+```
+
+- 如果不想换行，可以使用end 参数：
+
+- ```pyt
+  print('Total:',end='',file=outfile)
+  ```
+
+### 案件实例
+
+```python
+infile = open('input.txt','r') #以读模式打开input.txt文件
+outfile = open('output.txt','w') #以写模式打开output.txt
+
+#为了方便计算total 和 average
+total = 0.0
+count = 0
+
+line = infile.readline()
+while line != '':
+  value = float(line)
+  outfile.write('%15.2f\n' % value) #%表示格式化，15表示框的长度，默认右对齐
+  total += value
+  count += 1
+  line = infile.readline()
+  
+outfile.write('%15s\n' % '________')
+outfile.write('Total:%8.2f\n' % total)
+
+avg = total / count
+outfile.write('Average:%6.2f\n' % avg)
+
+#最后一定要记得关闭文件
+infile.close()
+outfile.close()
+```
+
+
 
 # 其他
 

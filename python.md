@@ -707,7 +707,95 @@ infile.close()
 outfile.close()
 ```
 
+## 文本输入和输出
 
+### 迭代文件中的行
+
+```python
+for line in infile:
+  print(line)
+```
+
+- 在每个迭代的开始，循环变量line被赋值为包含文件下一行文本的字符串
+
+- 每一行包含最后的换行符
+
+- ```python
+  line=line.rstrip()
+  ```
+
+  rstrip方法创建一个新字符串，删除原字符串尾部的所有空白字符(空格、制表符、换行符)
+
+  ```python
+  line = line.rstrip('.?')
+  ```
+
+  删除字符串尾部的一个圆点或一个问号
+
+- lstrip方法(首部删除)
+
+- strip方法(两侧删除)
+
+### 读取单词
+
+- 从文件中读取一个单词
+
+- 使用split方法将读取的一行切分成独立的单词
+
+  ```python
+  wordList = line.split()
+  ```
+
+  split方法返回在每个空白字符处对原始字符串进行切分得到的子字符串的列表，并且按在原字符串中出现的相同顺序存储到一个列表wordList中。
+
+- ```python
+  # 切分字符串后，可以迭代子字符串来输出这些独立的单词
+  for word in wordList:
+    print(word)
+    
+  ```
+
+- ```python
+  word.rstrip('.,?!') #只想输出文件中的单词而不包括标点符号
+  ```
+
+  ```python
+  inputFile = open('lyrics.txt','r')
+  for line in inputFile:
+    line = line.rstrip() #删除末尾的换行符
+    wordList = line.split() #将单词分开并存储到列表中
+    for word in wordList:
+      word = word.rstrip('.,?!')
+      print(word)
+  inputFile.close()
+  ```
+
+- 读取单个的字符
+
+- 使用read方法读取独立的字符，而不是一整行
+
+- ```python
+  char = inputFile.read(1) # 1表示字符的长度的参数
+  ```
+
+  #### 实际案例
+
+  ```python
+  #判断一个文件中出现字母的次数
+  letterCounts = [0] * 26 #初始化每个字母的个数
+  inputFile = open('lyrics.txt','r') #以读模式打开该文件
+  char = inputFile.read(1) 
+  while char != '':
+    char = char.upper() #将所有字母调成大写字母
+    if char >= 'A' and char<= 'Z':   #不考虑其他特殊的字符
+      code = ord(char) - ord('A')
+      letterCounts[code] += 1
+    char = inputFile.read(1) #接着读取下一行
+  print(letterCounts)
+  inputFile.close()
+  ```
+
+  
 
 # 其他
 

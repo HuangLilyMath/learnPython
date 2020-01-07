@@ -795,7 +795,58 @@ for line in infile:
   inputFile.close()
   ```
 
+
+## 二进制文件与随机访问
+
+- 在二进制形式中，数据项使用字节来表示。一个字节由8位组成，每一位可以是0或1.
+- 包含图像和声音的文件通常以二进制格式保存信息
+- 二进制文件节省空间
+
+### 读写二进制文件
+
+```python
+inFile = open(filename.'rb') #以读模式打开二进制文件
+outFile = open(filename.'wb') #以写模式打开文件
+theBytes = inFile.read(4) #对于二进制文件，不能读取文本字符串，而是独立的字节。通过这个调用读取4个字节
+```
+
+- read方法返回的字节值保存位bytes序列类型。
+
+- 一个bytes序列中的元素是介于0到255之间的整数值。
+
+- 必须使用下标运算符从bytes序列中将其取出：
+
+  ```python
+  value = theBytes[0]
+  ```
+
+  ```python
+  value = inFile.read(1)[0] #读取单个字节
+  ```
+
   
+
+```python
+theBytes = bytes([64,226,1,0])
+outFile.write(theBytes)
+#使用write方法把一个或多个字节写入二进制文件。
+#需要一个bytes序列作为参数
+```
+
+### 随机访问
+
+- 顺序访问
+- 随机访问：在没有读取前面所有项的情况下直接访问特定的项。
+
+```python
+inFile.seek(position) #seek方法把标记定位到相对于文件开始的位置
+```
+
+```python
+Position = inFile.tell() #获取当前位置
+```
+
+ 
 
 # 其他
 

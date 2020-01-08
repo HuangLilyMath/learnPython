@@ -846,7 +846,20 @@ inFile.seek(position) #seek方法把标记定位到相对于文件开始的位�
 Position = inFile.tell() #获取当前位置
 ```
 
- 
+# 异常处理
+
+- 提前检测
+
+- 事后处理
+
+ `try/except`
+
+- try/except用来处理异常
+- try中包含可能引发异常的语句
+- except中包含处理异常的代码
+- except子句可以有多个，把比较具体的异常放在通用的异常前面。
+
+
 
 # 其他
 
